@@ -1,6 +1,6 @@
 /*
  * Program koji svaki znak koji dolazi na UART1 Rx nozicu (PA_10)
- * salje na UART1_Tx nozicu.
+ * salje na UART1_Tx nozicu (PA_9).
  * Napomena 1: ne moze se slati znak cija je vrijednost 0xFF jer se ta vrijednost
  * koristi kao informacija da nema primljenog znaka na Rx nozici
  * Napomena 2: USB to RS232/TTL adapter spojiti sa BluePill na slijedeci nacin:
@@ -74,7 +74,7 @@ void initUSART(void) {
 	GPIO_InitTypeDef gpioInitStruct;
 	USART_InitTypeDef usartInitStruct;
 
-	// 1-Inicijalizacija RCC: clock treba dovesti na GPIOA, AF i USART1 blokove
+	// 1-Inicijalizacija RCC: clock treba dovesti na GPIOA, AFIO i USART1 blokove
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO | RCC_APB2Periph_USART1, ENABLE);
 
 	// 2a-Inicijalizacija GPIO za Tx: USART1_Tx(PA_9, AF OUT push-pull)
