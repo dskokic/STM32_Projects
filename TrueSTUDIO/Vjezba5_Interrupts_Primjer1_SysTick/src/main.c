@@ -30,10 +30,9 @@ int main(void) {
 
 	// argument za SysTick_Config() funkciju jest broj
 	// s kojim ce se dijeliti SystemCoreClock (72 MHz)
-	// Tako dobiveni broj jest frekvencija SysTicka u Hz
-	// broj treba umanjiti za 1 jer brojac krece od 0
+	// Tako dobiveni broj jest frekvencija SysTicka u Hz.
 	// Konkretno: SystemCoreClock / (SystemCoreClock/1000) = 1000 Hz
-	SysTick_Config(SystemCoreClock/1000 - 1);
+	SysTick_Config(SystemCoreClock/1000);
 
 	// ciklicki dio
 	while(1) {
