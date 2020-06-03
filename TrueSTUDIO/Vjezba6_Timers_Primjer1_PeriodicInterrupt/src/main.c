@@ -50,6 +50,7 @@ void initLED(void) {
   * counter: 10 kHz / 5000 => 2 Hz
   */
 void initTimer(void) {
+
 	TIM_TimeBaseInitTypeDef timeBaseInitStruct;
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 

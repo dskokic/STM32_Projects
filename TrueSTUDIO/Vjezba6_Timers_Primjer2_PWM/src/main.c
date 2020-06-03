@@ -43,8 +43,6 @@ int main() {
 	// ADC je konfiguriran da se pokrece putem SW komande
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 
-	TIM_SetCompare2(TIM2, 30);
-	TIM_SetCompare3(TIM2, 30);
 	// ciklicki dio
 	while(1) {
 
@@ -64,7 +62,6 @@ int main() {
 			TIM_SetCompare2(TIM2, intensity);
 			TIM_SetCompare3(TIM2, 1000 - intensity);
 			isUpdateTime = 0;
-			//for (int i = 0; i < 500000; i++);
 		}
 	}
 }
@@ -110,8 +107,8 @@ void initTimer(void) {
 	TIM_OCStructInit(&TIM_OCInitStruct);
 	TIM_OCInitStruct.TIM_OCMode      = TIM_OCMode_PWM1;
 	TIM_OCInitStruct.TIM_OutputState = TIM_OutputState_Enable;
-	TIM_OC2Init(TIM2, &TIM_OCInitStruct); // ch2
-	TIM_OC3Init(TIM2, &TIM_OCInitStruct); // ch3
+	TIM_OC2Init(TIM2, &TIM_OCInitStruct); // TIM2 ch2
+	TIM_OC3Init(TIM2, &TIM_OCInitStruct); // TIM2 ch3
 
     // pokreni Timer
     TIM_Cmd(TIM2, ENABLE);

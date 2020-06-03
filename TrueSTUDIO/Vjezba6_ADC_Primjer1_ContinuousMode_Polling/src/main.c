@@ -80,7 +80,7 @@ void initADC(void) {
 	GPIO_InitTypeDef gpioInitStruct;
 	ADC_InitTypeDef	 adcInitStruct;
 
-	// ADC moeze raditi na max 14 MHz (72 MHz/6 = 12 MHz, sto je ok)
+	// ADC moze raditi na max 14 MHz (72 MHz/6 = 12 MHz, sto je ok)
 	RCC_ADCCLKConfig(RCC_PCLK2_Div6);
 	// 1-Inicijalizacija RCC: clock treba dovesti na GPIOA i ADC1
 	// Nozica PA_0 koristi kao analogni ulaz
