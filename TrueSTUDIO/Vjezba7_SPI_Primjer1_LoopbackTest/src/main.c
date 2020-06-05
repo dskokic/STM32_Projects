@@ -3,6 +3,9 @@
  * Koristi se SPI1 modul na nacin da se medjusobno spoje SPI1_MOSI (PA_7)
  * i SPI1_MISO (PA_6) nozice (tzv. loopback test). Svaki podatak koji se
  * posalje preko SPI1_MOSI treba se primiti na SPI1_MISO nozici.
+ *
+ * Program je najpoucnije izvoditi u Step-by-Step debug modu i pratiti
+ * vrijednosti varijabli txBuffer, rxBuffer te stanje SS nozice (preko LED)
  */
 
 #include <stddef.h>
@@ -14,6 +17,7 @@
 // Nozica PB_1 ce se koristiti kao Slave Select za SPI1
 #define SS GPIO_Pin_1
 #define BUFF_SIZE 4
+
 void initSPI(void);
 int spi1ReadWriteBytes(uint8_t *txBuff, uint8_t *rxBuff, uint8_t count);
 
